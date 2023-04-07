@@ -1,0 +1,11 @@
+.menuItem {
+  @apply relative block px-8 py-[23px] bg-gray-400 hover:bg-primary-300;
+}
+
+.menuItem:before {
+  @apply absolute top-0 left-0 block content-[''] w-full h-px bg-light opacity-[0.15];
+}
+
+.menuItem:after {
+  @apply absolute bottom-0 left-0 block content-[''] w-full h-px bg-dark-600 opacity-25;
+}
