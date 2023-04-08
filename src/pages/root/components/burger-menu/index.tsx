@@ -16,7 +16,7 @@ const BurgerMenu: FC = () => {
         )}
       </button>
       {isOpen && (
-        <nav className='absolute font-thin text-lg leading-[26px] w-burger-menu right-0'>
+        <nav className='absolute font-light text-lg leading-[26px] w-burger-menu right-0'>
           <ul>
             <li onClick={handleToggleMenu(false)}>
               <Link to='/my-record' className={styles.menuItem}>

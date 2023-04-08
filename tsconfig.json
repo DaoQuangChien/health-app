@@ -21,7 +21,8 @@
       "@pages/*": ["./src/pages/*"],
       "@components/*": ["./src/components/*"],
       "@services/*": ["./src/services/*"],
-      "@services": ["./src/services"]
+      "@services": ["./src/services"],
+      "@/*": ["./src/*"]
     }
   },
   "include": ["src"],

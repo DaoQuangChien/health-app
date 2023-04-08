@@ -2,6 +2,7 @@ import ProgressRing from '@components/progress-ring'
 import { FC, useEffect, useState } from 'react'
 import { Meal, MealCat, FILTER_OPTIONS } from '@services/meal-service'
 import { getMeals } from '@services'
+import Chart from '@components/chart'
 
 const INITIAL_PAGINATION: { offset: number; filter?: MealCat; isLoadmore: boolean } = {
   offset: 0,
@@ -45,8 +46,8 @@ const Home: FC = () => {
   }, [pagination])
   return (
     <div className='home-container'>
-      <section className='stat flex'>
-        <div className='achievement-rate relative grow-[2] max-w-[640px] aspect-[540/312] h-full bg-[url("@assets/images/d01.jpg")] bg-no-repeat absolute w-full h-full'>
+      <section className='stat flex flex-col lg:flex-row bg-dark-600'>
+        <div className='achievement-rate relative grow-[2] max-w-[540px] aspect-[540/312] h-full bg-[url("@assets/images/d01.jpg")] bg-no-repeat absolute w-full h-full mx-auto lg:mx-[unset]'>
           <ProgressRing
             className='drop-shadow-primary absolute-center'
             radius={90.5}
@@ -57,10 +58,12 @@ const Home: FC = () => {
             05/21 <span className='text-[25px] leading-[30px]'>75%</span>
           </p>
         </div>
-        <div className='graph grow-[4]'></div>
+        <div className='graph grow-[4]'>
+          <Chart />
+        </div>
       </section>
       <section className='information max-w-container mx-auto'>
-        <div className='flex flex-wrap gap-x-[84px] justify-center py-[25px]'>
+        <div className='flex flex-wrap gap-x-[84px] gap-y-4 justify-center py-[25px]'>
           {FILTER_OPTIONS.map((item) => (
             <button
               key={item.title}
@@ -72,7 +75,7 @@ const Home: FC = () => {
             </button>
           ))}
         </div>
-        <div className='grid grid-cols-4 gap-2 pb-7'>
+        <div className='grid grid-cols-2 sm:grid-cols-4 gap-2 pb-7'>
           {data.map((value, i) => (
             <div key={i} className='relative aspect-square'>
               <img src={value.image} alt={value.description} className='h-full w-full' />
