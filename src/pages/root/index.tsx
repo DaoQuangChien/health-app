@@ -2,13 +2,16 @@ import { FC } from 'react'
 import images from '@assets/images'
 import BurgerMenu from './components/burger-menu'
 import { Link, Outlet } from 'react-router-dom'
+import ScrollTop from './components/scroll-top'
 
 const Root: FC = () => {
   return (
     <div className='page-container'>
       <header className='bg-dark-500 height-header fixed w-full top-0 left-0 z-50 shadow-[0_3px_6px_0_rgba(0,0,0,0.2)]'>
         <div className='flex justify-between items-center max-w-container mx-auto'>
-          <img src={images.logo} alt='Logo' />
+          <Link to='/'>
+            <img src={images.logo} alt='Logo' />
+          </Link>
           <nav>
             <ul className='flex text-light font-thin'>
               <li>
@@ -50,7 +53,7 @@ const Root: FC = () => {
       </div>
       <footer className='bg-dark-500 h-32 text-light font-thin flex items-center'>
         <nav className='max-w-container w-full mx-auto'>
-          <ul className='flex gap-x-[45px]'>
+          <ul className='flex flex-wrap gap-x-[45px] gap-y-4'>
             <li>
               <Link to='/'>会員登録</Link>
             </li>
@@ -72,6 +75,7 @@ const Root: FC = () => {
           </ul>
         </nav>
       </footer>
+      <ScrollTop />
     </div>
   )
 }

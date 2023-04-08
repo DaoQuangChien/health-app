@@ -39,7 +39,7 @@ const BurgerMenu: FC = () => {
               </Link>
             </li>
             <li onClick={handleToggleMenu(false)}>
-              <Link to='/' className={styles.menuItem}>
+              <Link to='/column' className={styles.menuItem}>
                 コラム一覧
               </Link>
             </li>
