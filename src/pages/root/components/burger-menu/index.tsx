@@ -1,13 +1,17 @@
-import { FC, useState } from 'react'
+import { FC, useRef, useState } from 'react'
 import images from '@assets/images'
 import { Link } from 'react-router-dom'
 import styles from './styles.module.css'
+import useOnClickOutside from '@/hooks/useClickOutside'
 
 const BurgerMenu: FC = () => {
+  const menuRef = useRef(null)
   const [isOpen, setIsOpen] = useState(false)
   const handleToggleMenu = (value?: boolean) => () => setIsOpen(value ?? !isOpen)
+
+  useOnClickOutside(menuRef, handleToggleMenu(false))
   return (
-    <div className='relative'>
+    <div className='relative' ref={menuRef}>
       <button onClick={handleToggleMenu()}>
         {isOpen ? (
           <img src={images.iconClose} alt='Menu' />
